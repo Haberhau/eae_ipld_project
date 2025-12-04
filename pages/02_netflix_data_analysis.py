@@ -99,13 +99,46 @@ movies_avg_duration_per_year["duration_minutes"] = movies_avg_duration_per_year[
 movies_avg_duration_per_year = movies_avg_duration_per_year.groupby("release_year")["duration_minutes"].mean()
 
 if movies_avg_duration_per_year is not None:
-    fig = plt.figure(figsize=(9, 6))
+   
+    bg_color = '#0E1117'
+    netflix_red = '#E50914'
+    text_color = 'white'
 
-    plt.plot(movies_avg_duration_per_year.index, movies_avg_duration_per_year.values, marker='o')
+    
+    fig, ax = plt.subplots(figsize=(9, 6))
 
-    plt.title("Average Duration of Movies Across Years")
+    
+    fig.patch.set_facecolor(bg_color)
+    ax.set_facecolor(bg_color)
 
-    st.pyplot(fig)
+    
+    ax.plot(movies_avg_duration_per_year.index, 
+            movies_avg_duration_per_year.values, 
+            marker='o', 
+            color=netflix_red,      
+            linewidth=2.5, 
+            markersize=6,
+            markeredgecolor='white' 
+           )
+
+   
+    ax.set_title("Average Duration of Movies Across Years", color=text_color, fontsize=16, pad=15)
+    ax.set_xlabel("Year", color=text_color, fontsize=12)
+    ax.set_ylabel("Duration (Minutes)", color=text_color, fontsize=12)
+
+    
+    ax.tick_params(axis='x', colors=text_color)
+    ax.tick_params(axis='y', colors=text_color)
+
+   
+    ax.spines['bottom'].set_color(text_color)
+    ax.spines['left'].set_color(text_color)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    ax.grid(color='white', linestyle='--', linewidth=0.5, alpha=0.1)
+
+    st.pyplot(fig, use_container_width=True)
 
 else:
     st.subheader("⚠️ You still need to develop the Ex 2.7.")
