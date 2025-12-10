@@ -24,9 +24,8 @@ st.divider()
 def load_data():
     data_path = "data/netflix_titles.csv"
 
-
+    movies_df = pd.read_csv(data_path)
     movies_df = movies_df[movies_df['type'] == 'Movie']
-    
     return movies_df   # a Pandas DataFrame
 
 
@@ -77,6 +76,7 @@ year = cols2[0].number_input("Select a year:", min_year, max_year, 2005)
 # combined were made by every country, limit it to the top 10 countries.
 top_10_countries = movies_df[movies_df['release_year'] == year].groupby('country').size().sort_values(ascending=False).head(10)
 
+
 # print(top_10_countries)
 if top_10_countries is not None:
     fig = plt.figure(figsize=(8, 8))
@@ -100,7 +100,7 @@ movies_avg_duration_per_year = movies_df.groupby('release_year')['duration'].mea
 if movies_avg_duration_per_year is not None:
     fig = plt.figure(figsize=(9, 6))
 
-    # plt.plot(...# TODO: generate the line plot using plt.plot() and the information from movies_avg_duration_per_year (the vertical axes with the minutes value) and its index (the horizontal axes with the years)
+    plt.plot(movies_avg_duration_per_year.index, movies_avg_duration_per_year.values, marker='o')
 
     plt.title("Average Duration of Movies Across Years")
 
