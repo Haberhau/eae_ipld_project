@@ -54,15 +54,15 @@ def home_page():
     st.write("""
     - 🧑‍💻 I am a Data Analyst and Master Student in Big Data & Analytics
 
-    - 🛩️ prev: <Previous Experience, Background or Studies>
+    - 🛩️ prev: Bachelor in Business Management
 
-    - ❤️ <Your Passion and/or Interests>
+    - ❤️ Passionate about data analysis and visualization
 
-    - 🤖 <Your Personal Projects>
+    - 🤖 Personal Projects: Building dashboards and analyzing datasets
 
-    - 🏂 <Your Hobbies>
+    - 🏂 Tennis, Padel
 
-    - 📫 How to reach me: <Your Email>
+    - 📫 How to reach me: fhaberhauer@student.eae.es
 
     - 🏠 Barcelona
     """)
