@@ -46,7 +46,7 @@ temps_df["AvgTemperatureCelsius"] = (temps_df["AvgTemperatureFahrenheit"] - 32) 
 # ----- Extracting some basic information from the dataset -----
 
 # TODO: Ex 3.3: How many different cities are there? Provide a list of them.
-unique_countries_list = temps_df["Cities"].unique().tolist()
+unique_countries_list = temps_df["City"].unique().tolist()
 
 # TODO: Ex 3.4: Which are the minimum and maximum dates?
 min_date = temps_df["Date"].min()
