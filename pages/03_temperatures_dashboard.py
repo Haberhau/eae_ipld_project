@@ -28,22 +28,17 @@ def load_data():
     if temps_df is not None:
         temps_df["Date"] = pd.to_datetime(temps_df["Date"]).dt.date
 
-    return temps_df  # a Pandas DataFrame
+    return temps_df 
 
 
 temps_df = load_data()
 
-# Displaying the dataset in a expandable table
 with st.expander("Check the complete dataset:"):
     st.dataframe(temps_df)
 
-
-# ----- Data transformation -----
-
-
 temps_df["AvgTemperatureCelsius"] = (temps_df["AvgTemperatureFahrenheit"] - 32) * 5/9
 
-# ----- Extracting some basic information from the dataset -----
+
 
 # TODO: Ex 3.3: How many different cities are there? Provide a list of them.
 unique_countries_list = temps_df["City"].unique().tolist()
